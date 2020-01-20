@@ -1,0 +1,327 @@
+$darkblue: #233656;
+$blue: #415B76;
+$gray: #7B9BA6;
+$lightgray: #CDD6D5;
+$white: #EEF4F2;
+$black: #212121;
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  border: none;
+  color: $black;
+  font-family: sans-serif;
+  box-sizing: border-box;
+
+  &::selection {
+    background-color: $blue;
+    color: $white;
+  }
+
+
+}
+
+body, html {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: $lightgray;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.topnav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 75px;
+  background-color: $darkblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px;
+  box-shadow: 0 1px 6px $gray;
+
+  h1 a {
+    font-size: 26px;
+    color: darken($white, 10%);
+    transition: .25s;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .right-nav {
+    display: flex;
+    i {
+      color: $white;
+      font-size: 26px;
+      margin: 0 10px;
+      cursor: pointer;
+    }
+  }
+
+
+  .burger-list {
+    width: calc(300px - 50px);
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: $blue;
+    padding: 25px;
+    transition: .25s;
+
+    &.list-closed {
+      right: -300px;
+    }
+
+    li {
+      margin: 15px 0;
+      font-size: 22px;
+
+      a {
+        color: $white;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+    }
+
+    .close-icon {
+      font-size: 18px;
+      float: right;
+      cursor: pointer;
+
+      i {
+        color: $white;
+      }
+    }
+  }
+
+  .burger-close {
+    width: calc(100% - 250px);
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba($black, .7);
+    transition: .25s;
+
+    &.close-closed {
+      left: calc(-100% - 250px);
+    }
+  }
+
+  form {
+    input {
+      width: 500px;
+      height: 40px;
+      background-color: lighten($blue, 5%);
+      border-radius: 50px;
+      padding: 0 15px;
+      color: $white;
+      font-size: 18px;
+      margin-left: -70px;
+
+
+      &::placeholder {
+        color: $white;
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: $white;
+  padding: 25px;
+  margin-top: 100px;
+
+  .heading {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+  ul {
+    box-shadow: 0 0 6px $gray;
+
+    li {
+      width: 100%;
+      height: 30px;
+      padding: 20px;
+      background-color: lighten($lightgray, 10%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &:nth-child(odd) {
+        background-color: $lightgray;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .detail-header {
+    width: calc(100% + 50px);
+    position: relative;
+    left: -25px;
+    padding: 15px 25px;
+    top: -25px;
+    height: 100px;
+    background-color: $blue;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+
+    h1 {
+      color: $white;
+      font-size: 30px;
+    }
+
+    h2 {
+      color: $white;
+      font-size: 18px;
+      margin-top: 5px;
+
+      a {
+        color: $white;
+      }
+    }
+  }
+
+  pre {
+    text-align: center;
+  }
+
+  .addnew {
+    a {
+      color: $white;
+      padding: 10px 15px;
+      background-color: $blue;
+      border-radius: 25px;
+      float: left;
+      transition: .25s;
+      margin-bottom: 25px;
+
+      &:hover {
+        background-color: $darkblue;
+      }
+    }
+  }
+
+  .artistList {
+    display: none;
+
+    li {
+      background-color: lighten($lightgray, 10%);
+      border-top: 1px solid $blue;
+      border-bottom: 1px solid $blue;
+      cursor: pointer;
+      transition: .25s;
+
+      &:nth-child(odd) {
+        background-color: lighten($lightgray, 10%);
+      }
+
+      &:hover {
+        background-color: lighten($lightgray, 5%);
+      }
+    }
+  }
+}
+
+.makeNew {
+  input {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+  }
+
+  textarea {
+    width: 100%;
+    height: 500px;
+    resize: vertical;
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  label {
+    margin: 25px 0 10px 0;
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  button {
+    padding: 10px 20px;
+    background-color: $blue;
+    transition: .25s;
+    color: $white;
+    font-size: 18px;
+    border-radius: 40px;
+    cursor: pointer;
+    margin: 25px 0;
+    float: right;
+    &:hover {
+      background-color: $darkblue;
+    }
+  }
+
+  .clearfix {
+    clear: both;
+  }
+}
+
+.login {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+
+  form {
+    input {
+      width: 100%;
+      height: 40px;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    button {
+      float: right;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 8px;
+      color: $white;
+      background-color: $blue;
+      transition: .25s;
+
+      &:hover {
+        background-color: $darkblue;
+      }
+    }
+  }
+}
